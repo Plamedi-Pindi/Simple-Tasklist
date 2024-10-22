@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+   
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+
+  background: radial-gradient(rgb(233, 77, 233), rgb(78, 1, 78));
+
+
+}
+
+ 
+ 
