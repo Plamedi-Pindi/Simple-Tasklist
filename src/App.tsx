@@ -92,7 +92,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-zinc-700 text-white w-72 p-6 h-96 rounded">
+      <div className="bg-zinc-700 text-white w-72 p-6 h-[35rem] rounded">
 
         {/* This Component allow user add a task */}
         <TaskInput

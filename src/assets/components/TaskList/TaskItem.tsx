@@ -80,14 +80,14 @@ export default function TaskItem({
         )
     } else {
         return (
-            <li key={task.id} className="flex items-center justify-between relative text-sm outline-none mb-2" >
+            <li key={task.id} className="flex items-center justify-between relative text-sm outline-none mb-4" >
                 <div className="flex">
                     {/* Checkbox input */}
                     <input
                         type="checkbox"
                         checked={checked}
                         onChange={onChange}
-                        className="mr-2 bg-neutral-600"
+                        className="mr-3 bg-neutral-600"
                     />
                     {/* Title Text */}
                     <p className={`${text} `}> {task.title} </p>
@@ -103,7 +103,7 @@ export default function TaskItem({
                 <ul className={`w-20 bg-zinc-600 p-2 absolute right-1 top-6 ${sitting ? '' : 'hidden'} text-sm text-neutral-300 cursor-pointer z-10`} >
                     <li
                         onClick={handleEditeClick}
-                        className="flex items-center mb-2"
+                        className="flex items-center mb-5"
                     >
                         <BsPencilSquare className="shrink-0 mr-2 text-xs"  />
                         Edite

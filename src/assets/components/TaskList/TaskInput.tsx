@@ -9,14 +9,14 @@ interface TaskInputType {
 
 export default function TaskInput({ input, onChange, onClick, onKeyDown }: TaskInputType) {
     return (
-        <section className="mb-4">
+        <section className="mb-8">
             <input
                 value={input}
                 type="text"
                 onChange={onChange}
                 onKeyDown={onKeyDown}
                 placeholder="Add new task..."
-                className='bg-zinc-800 outline-none mx-auto block w-full p-1 text-sm pl-2 rounded'
+                className='bg-zinc-800 outline-none mx-auto block w-full p-2 text-sm pl-2 rounded'
             />
             <button
                 onClick={onClick}
