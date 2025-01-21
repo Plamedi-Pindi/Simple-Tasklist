@@ -16,7 +16,8 @@ function App() {
   const [tasks, setTasks] = useState<TaskType[]>(tasksList);
   const [input, setInput] = useState('');
 
-  // Add Task
+
+  // Add Task ==================================
   const AddTask = () => {
     if (input !== '') {
       const newTask: TaskType = {
@@ -29,7 +30,7 @@ function App() {
     }
   }
 
-  // Update Task
+  // Update Task ==================================
   const updateTask = (id: number, input: string) => {
 
     const newTasks = tasks.map(task => {
@@ -46,13 +47,13 @@ function App() {
     setTasks(newTasks);
   }
 
-  // Delete Task function
+  // Delete Task function ==================================
   const deleteTask = (id: number) => {
     const newTask = tasks.filter(task => task.id !== id);
     setTasks(newTask);
   }
 
-  // Set Task Done function
+  // Set Task Done function ==================================
   const TaskDone = (id: number) => {
 
     const newTask = tasks.map(task => {
@@ -84,55 +85,64 @@ function App() {
     }
   }
 
-  // Input Change Event Handler
+  // Input Change Event Handler ================================
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
   }
 
 
+  // Main Faction ========================================
   return (
-    <>
-      <div className="bg-zinc-700 text-white w-72 p-6 h-[35rem] rounded">
+    <div className='h-screen w-[100%] flex items-center justify-center '>
+      <div className="bg-zinc-700 text-white w-72 pt-6 pb-6 h-[35rem] rounded">
 
         {/* This Component allow user add a task */}
-        <TaskInput
-          input={input}
-          onChange={handleInputChange}
-          onClick={AddTask}
-          onKeyDown={handleKeyDown}
-        />
+        <div className='pr-6 pl-6'>
+          <TaskInput
+            input={input}
+            onChange={handleInputChange}
+            onClick={AddTask}
+            onKeyDown={handleKeyDown}
+          />
+        </div>
 
         {/* This component List undone tasks */}
-        <TaskList>
-          {tasks.map(item => item.done === false && (
-            <TaskItem
-              checked={item.done}
-              task={item}
-              onChange={() => { TaskDone(item.id) }}
-              text={'text-neutral-300'}
-              onUpdateTask={updateTask}
-              onDeleteTask={deleteTask}
-            />
-          ))}
-        </TaskList>
+        <div className=' pr-6 pl-6 max-h-52 mb-4 overflow-y-scroll boxScroll'>
+          <TaskList>
+            {tasks.map(item => item.done === false && (
+              <TaskItem
+                key={item.id}
+                checked={item.done}
+                task={item}
+                onChange={() => { TaskDone(item.id) }}
+                text={'text-neutral-300'}
+                onUpdateTask={updateTask}
+                onDeleteTask={deleteTask}
+              />
+            ))}
+          </TaskList>
+        </div>
 
         <hr className='border-neutral-800 mb-5' />
 
         {/* This component List done tasks */}
-        <TaskList>
-          {tasks.map(item => item.done === true && (
-            <TaskItem
-              checked={item.done}
-              task={item}
-              onChange={() => { TaskDone(item.id) }}
-              text={'line-through text-neutral-400'}
-              onUpdateTask={updateTask}
-              onDeleteTask={deleteTask}
-            />
-          ))}
-        </TaskList>
+        <div className='pr-6 pl-6 max-h-52 mb-4 overflow-y-scroll boxScroll'>
+          <TaskList>
+            {tasks.map(item => item.done === true && (
+              <TaskItem
+                checked={item.done}
+                task={item}
+                onChange={() => { TaskDone(item.id) }}
+                text={'line-through text-neutral-400'}
+                onUpdateTask={updateTask}
+                onDeleteTask={deleteTask}
+              />
+            ))}
+          </TaskList>
+        </div>
+
       </div>
-    </>
+    </div>
   )
 }
 

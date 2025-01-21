@@ -8,14 +8,19 @@
 
 body {
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
   transition: .5s;
 
   background: radial-gradient(rgb(233, 77, 233), rgb(78, 1, 78));
+}
 
+.boxScroll::-webkit-scrollbar {
+  width: 6px;
+}
 
+.boxScroll::-webkit-scrollbar-thumb {
+  width: 8px;
+  background-color: rgb(43, 44, 44);
 }
 
  

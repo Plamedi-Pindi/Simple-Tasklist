@@ -38,7 +38,7 @@ export default function TaskItem({
 
     //   
     const handleSittingClick = () => {
-        setSitting(true);
+        setSitting((prev) => !prev);
     }
 
     //   
@@ -59,7 +59,7 @@ export default function TaskItem({
     if (isEditing) {
 
         return (
-            <li key={task.id} className="flex items-center justify-between relative text-sm outline-none mb-2">
+            <li key={task.id}  className="flex items-center justify-between relative text-sm outline-none mb-2">
                 <input
                     type="text"
                     value={updateInput}
@@ -80,7 +80,7 @@ export default function TaskItem({
         )
     } else {
         return (
-            <li key={task.id} className="flex items-center justify-between relative text-sm outline-none mb-4" >
+            <li key={task.id} className="flex items-center justify-between relative text-sm outline-none mb-6" >
                 <div className="flex">
                     {/* Checkbox input */}
                     <input
